@@ -1,0 +1,18 @@
+<h2>Carrito de compras</h2>
+<!-- Verifica si hay productos en el carrito -->
+<div *ngIf="carrito.length > 0">
+    <ul>
+        <!-- Usa *ngFor para iterar sobre los productos del carrito -->
+        <li *ngFor="let producto of carrito; let i = index">
+            {{producto.nombre}} - ${{producto.precio}}
+            <button (click)="eliminarDelCarrito(i)">Eliminar</button>
+        </li>
+    </ul>
+    <button (click)="generarXML()">
+        Pagar
+    </button>
+</div>
+<!-- Si no hay productos en el carrito, muestra este mensaje -->
+<p *ngIf="carrito.length === 0">
+    No hay productos en el carrito
+</p>
